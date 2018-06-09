@@ -1,0 +1,23 @@
+coverage/
+dist/
+docs/
+
+# NodeJS
+node_modules/
+npm-debug.log
+config.gypi
+.npm
+.npmrc
+.node_repl_history
+
+# Tools
+.idea
+.vscode
+.eslintcache
+.env
+
+# Other
+.*.swp
+._*
+*.log
+.DS_Store

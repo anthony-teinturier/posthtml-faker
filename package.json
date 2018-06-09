@@ -1,0 +1,75 @@
+{
+  "name": "posthtml-faker",
+  "version": "1.0.1",
+  "license": "MIT",
+  "description": "PostHTML plugin that includes Faker.js features within HTML.",
+  "author": "Anthony Teinturier <anthony.teinturier@users.noreply.github.com>",
+  "homepage": "https://github.com/anthony-teinturier/posthtml-faker",
+  "repository": "https://github.com/anthony-teinturier/posthtml-faker.git",
+  "bugs": "https://github.com/anthony-teinturier/posthtml-faker/issues",
+  "keywords": [
+    "html",
+    "posthtml",
+    "posthtml-plugin",
+    "faker"
+  ],
+  "main": "dist/",
+  "files": [
+    "dist/"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "build": "npm run ts:clean && npm run ts:build",
+    "ts:clean": "rimraf ./dist/",
+    "ts:build": "tsc",
+    "ts:lint": "tslint -c tslint.json -p tsconfig.json",
+    "test": "jest --detectOpenHandles --verbose",
+    "test:watch": "npm run test -- --watchAll",
+    "test:coverage": "jest --detectOpenHandles --coverage",
+    "docs": "npm run docs:clean && npm run docs:build",
+    "docs:build": "typedoc --excludeNotExported --out ./docs/",
+    "docs:clean": "rimraf ./docs/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test && npm run build"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "npm run ts:lint --",
+      "prettier --write",
+      "git add"
+    ],
+    "test/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "faker": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.0.0",
+    "@types/node": "^10.3.2",
+    "husky": "^1.0.0-rc.8",
+    "jest": "^23.1.0",
+    "lint-staged": "^7.1.3",
+    "posthtml": "^0.11.3",
+    "prettier": "^1.13.5",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.4.6",
+    "ts-node": "^6.1.0",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.13.0",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.9.1"
+  }
+}
