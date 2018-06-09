@@ -1,0 +1,19 @@
+language: node_js
+
+script:
+  - npm run test:ci
+
+# Trigger a push build on master.
+branches:
+  only:
+    - master
+
+# Test on the latest LTS and stable Node.js releases.
+node_js:
+  - "node"
+  - "lts/*"
+
+# Cache downloaded dependencies.
+cache:
+  directories:
+    - $HOME/.npm

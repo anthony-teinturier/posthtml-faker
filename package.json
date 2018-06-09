@@ -1,6 +1,6 @@
 {
   "name": "posthtml-faker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "description": "PostHTML plugin that includes Faker.js features within HTML.",
   "author": "Anthony Teinturier <anthony.teinturier@users.noreply.github.com>",
@@ -28,6 +28,7 @@
     "test": "jest --detectOpenHandles --verbose",
     "test:watch": "npm run test -- --watchAll",
     "test:coverage": "jest --detectOpenHandles --coverage",
+    "test:ci": "jest --detectOpenHandles --noStackTrace --silent --ci",
     "docs": "npm run docs:clean && npm run docs:build",
     "docs:build": "typedoc --excludeNotExported --out ./docs/",
     "docs:clean": "rimraf ./docs/"

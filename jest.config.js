@@ -5,7 +5,7 @@ module.exports = {
       tsConfigFile: "tsconfig.json"
     }
   },
-  testMatch: ["**/test/**/*.test.(ts|tsx)"],
+  testMatch: ["<rootDir>/test/**/*.test.(ts|tsx)"],
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest"
   },

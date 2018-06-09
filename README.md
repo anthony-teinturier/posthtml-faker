@@ -1,5 +1,7 @@
 # PostHTML-Faker
 
+[![Tests][build]][build-url]
+
 [PostHTML-Faker] is a plugin for [PostHTML] that let you use [Faker.js] features to generate fake data in your HTML documents.
 
 ## Usage
@@ -78,3 +80,5 @@ This [PostHTML] plugin is [MIT Licensed].
 [json data types]: https://www.w3schools.com/js/js_json_datatypes.asp
 [faker.js api]: http://marak.github.io/faker.js
 [mit licensed]: https://github.com/anthony-teinturier/posthtml-faker/blob/master/LICENSE
+[build]: https://travis-ci.org/anthony-teinturier/posthtml-faker.svg?branch=master
+[build-url]: https://travis-ci.org/anthony-teinturier/posthtml-faker?branch=master
