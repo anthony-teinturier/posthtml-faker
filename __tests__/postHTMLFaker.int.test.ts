@@ -3,7 +3,7 @@ import posthtml from "posthtml";
 
 import { postHTMLFaker } from "../src/postHTMLFaker";
 
-describe("Generating fake data from the HTML <fake> element", () => {
+describe("Generating fake data from the HTML", () => {
   const fakerInput = "{{image.animals}}";
   const fakerOutput = faker.fake(fakerInput);
 
@@ -56,7 +56,7 @@ describe("Generating fake data from the HTML <fake> element", () => {
   });
 });
 
-describe("Generating fake data from the HTML <fake> element with user configuration", () => {
+describe("Generating fake data from the HTML with user configuration", () => {
   let engine;
 
   beforeAll(() => {
