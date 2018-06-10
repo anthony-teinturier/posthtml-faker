@@ -1,8 +1,8 @@
 import {
-  IPostHTMLTagNode,
-  IPostHTMLTreeMatcher,
-  PostHTMLTreeNode
-} from "./api/postHTML";
+  IPostHtmlTagNode,
+  IPostHtmlTreeMatcher,
+  PostHtmlTreeNode
+} from "./api/postHtml";
 import { patchFake } from "./patch/faker";
 
 /**
@@ -18,22 +18,22 @@ const PLUGIN_DEFAULTS = {
 };
 
 /**
- * Creates a plugin for the PostHTML API, which replaces any HTML `<fake>` tags
+ * Creates a plugin for the PostHtml API, which replaces any HTML `<fake>` tags
  * with the generated fake data.
  *
  * @param config The plugin configuration.
- * @returns The PostHTML plugin.
+ * @returns The PostHtml plugin.
  */
-export function postHTMLFaker(
+export function postHtmlFaker(
   config = {}
-): (tree: IPostHTMLTreeMatcher) => void {
+): (tree: IPostHtmlTreeMatcher) => void {
   const userConfig = Object.assign(PLUGIN_DEFAULTS, config);
   const faker = require(`faker/locale/${userConfig.locale}`);
   const fake = patchFake(faker);
 
-  return (tree: IPostHTMLTreeMatcher) => {
-    tree.match({ tag: FAKE_TAGNAME }, (node: IPostHTMLTagNode) => {
-      const tagNode: IPostHTMLTagNode = {
+  return (tree: IPostHtmlTreeMatcher) => {
+    tree.match({ tag: FAKE_TAGNAME }, (node: IPostHtmlTagNode) => {
+      const tagNode: IPostHtmlTagNode = {
         content: generateContent(fake, node),
         tag: false
       };
@@ -52,8 +52,8 @@ export function postHTMLFaker(
  */
 function generateContent(
   fake: (str: string) => string,
-  node: IPostHTMLTagNode
-): PostHTMLTreeNode[] {
+  node: IPostHtmlTagNode
+): PostHtmlTreeNode[] {
   if (Array.isArray(node.content)) {
     return node.content.map(generateNodeContent.bind(null, fake));
   }
@@ -62,16 +62,16 @@ function generateContent(
 }
 
 /**
- * Given a PostHTML node, it generates the fake data.
+ * Given a PostHtml node, it generates the fake data.
  *
  * @param fake The fake data generator.
- * @param node The PostHTML node.
+ * @param node The PostHtml node.
  * @returns The generated data.
  */
 function generateNodeContent(
   fake: (str: string) => string,
-  node: PostHTMLTreeNode
-): string | PostHTMLTreeNode {
+  node: PostHtmlTreeNode
+): string | PostHtmlTreeNode {
   if (typeof node === "string") {
     return fake(node);
   }
@@ -80,7 +80,7 @@ function generateNodeContent(
     return node;
   }
 
-  const treeNode: IPostHTMLTagNode = {
+  const treeNode: IPostHtmlTagNode = {
     tag: node.tag
   };
 

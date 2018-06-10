@@ -1,8 +1,8 @@
-import { postHTMLFaker } from "./postHTMLFaker";
+import { postHtmlFaker } from "./postHtmlFaker";
 
-export default postHTMLFaker;
+export default postHtmlFaker;
 
 /**
- * Exports the plugin as a standard PostHTML plugin.
+ * Exports the plugin as a standard PostHtml plugin.
  */
-module.exports = postHTMLFaker;
+module.exports = postHtmlFaker;

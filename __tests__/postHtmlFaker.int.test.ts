@@ -1,16 +1,16 @@
 import faker from "faker";
 import posthtml from "posthtml";
 
-import { postHTMLFaker } from "../src/postHTMLFaker";
+import { postHtmlFaker } from "../src/postHtmlFaker";
 
-describe("Generating fake data from the HTML", () => {
+describe("Generating fake data from HTML", () => {
   const fakerInput = "{{image.animals}}";
   const fakerOutput = faker.fake(fakerInput);
 
   let engine;
 
   beforeAll(() => {
-    engine = posthtml([postHTMLFaker()]);
+    engine = posthtml([postHtmlFaker()]);
   });
 
   test("When a fake element is empty should return an empty string", async () => {
@@ -56,11 +56,11 @@ describe("Generating fake data from the HTML", () => {
   });
 });
 
-describe("Generating fake data from the HTML with user configuration", () => {
+describe("Generating fake data from HTML with user configuration", () => {
   let engine;
 
   beforeAll(() => {
-    engine = posthtml([postHTMLFaker({ locale: "fr" })]);
+    engine = posthtml([postHtmlFaker({ locale: "fr" })]);
   });
 
   test("When a user configuration defines a locale should return a interpolated string in the defined locale", async () => {
