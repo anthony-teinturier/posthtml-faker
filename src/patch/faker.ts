@@ -3,7 +3,7 @@ import { IFaker } from "faker";
 /**
  * Compiled regular expression to match mustache expressions.
  */
-const ANY_MUSTACHES = /{{([^(]*?)(?:\(([^]*?)\)\s*}}|}})/g;
+const ANY_MUSTACHES = /\{\{\s*(?:([^(]+?)(?:\(([^)]*)\))?)?\s*\}\}/g;
 
 /**
  * Creates a new implementation of the `Faker.fake` method from the _Faker.js_
